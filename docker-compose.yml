@@ -1,0 +1,23 @@
+version: '3'
+services:
+  miner:
+    build: .
+    ports:
+      - "4000:9666"
+    expose:
+      - "9666"
+    command: [ "citadeld", "-addnode=node1:9666", "-addnode=node2:9666"]
+  node1:
+    build: .
+    ports:
+      - "4001:9666"
+    expose:
+      - "9666"
+    command: [ "citadeld", "-addnode=miner:9666", "-addnode=node2:9666"]
+  node2:
+    build: .
+    ports:
+      - "4002:9666"
+    expose:
+      - "9666"
+    command: [ "citadeld", "-addnode=node1:9666", "-addnode=miner:9666"]
