@@ -96,11 +96,6 @@ test_citadel.coverage/
 total.coverage/
 coverage_percent.txt
 
-#Docker
-Dockerfile
-
-citadel.conf
-
 #build tests
 linux-coverage-build
 linux-build
